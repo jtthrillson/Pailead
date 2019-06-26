@@ -80,7 +80,7 @@ public class PriorityQueue<Element> {
     
     /// Adds another element to the queue in correct order
     public func offer(_ element : Element) {
-        if let insertionIndex = elements.index(where: { self.isOrderedBefore(element, $0) }) {
+        if let insertionIndex = elements.firstIndex(where: { self.isOrderedBefore(element, $0) }) {
             elements.insert(element, at: insertionIndex)
         } else {
             elements.append(element)

@@ -33,9 +33,9 @@ public struct Swatch {
     }
 }
 
-extension Swatch : CustomPlaygroundQuickLookable {
-    public var customPlaygroundQuickLook : PlaygroundQuickLook {
-        return .color(color)
+extension Swatch : CustomPlaygroundDisplayConvertible {
+    public var playgroundDescription: Any {
+        return color
     }
 }
 
