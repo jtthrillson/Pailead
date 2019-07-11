@@ -197,13 +197,23 @@ class VBoxTests: XCTestCase {
         XCTAssertEqual(vbox.midpoint(in: .red), expectedMidpoint.red)
         XCTAssertEqual(vbox.midpoint(in: .green), expectedMidpoint.green)
         XCTAssertEqual(vbox.midpoint(in: .blue), expectedMidpoint.blue)
-        
     }
     
-    // Average Point
+
     // Median Along Dimensions
+    func testMedianAlongDimensionsWithNegativeLongestLenghtDoesntCrash() {
+        let minPixel = Pixel(red: 30, green: 15, blue: 10)
+        let maxPixel = Pixel(red: 20, green: 10, blue: 5)
+        let vbox = VBox(min: minPixel, max: maxPixel, contents: [:])
+
+        let longestDimen = vbox.longestDimension
+        _ = vbox.median(along: longestDimen)
+    }
+
+    // Average Point
     //   First Slice has everything
     //   Last Slice has everything
     //   Slice is exactly on half average
     // Split
+    
 }

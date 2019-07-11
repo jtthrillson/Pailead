@@ -191,8 +191,8 @@ public class VBox : Hashable {
     /// - Returns: The median subvalue
     public func median(along dimension : Axis) -> Pixel.SubValue {
         var totalSum = 0
-        
-        let lengthOfLongest = length(along: dimension)
+
+        let lengthOfLongest = max(length(along: dimension), 0)
         
         var slicesSums = [Int](repeating: 0, count: lengthOfLongest + 1)
         let minDimension = inital(in: dimension)
